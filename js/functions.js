@@ -12,5 +12,15 @@ let palindrome = (string) => {
   return true
 };
 
-lineLength('слово', 10);
-palindrome('лопот');
+let translationInMinutes = (time) => {
+  time = time.split(':').map(string => +string);
+  return time[0] * 60 + time[1];
+};
+
+let timeManagement = (startWork, endWork, startMeet, timeMeet) => {
+  let startW = translationInMinutes(startWork);
+  let endW = translationInMinutes(endWork);
+  let startM = translationInMinutes(startMeet);
+
+  return startW <= startM && startM + timeOfMeeting <= endW
+};
